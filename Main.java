@@ -135,4 +135,45 @@ public class Main {
 
         // ============================================================
         // ÉTAPE 8 : État global
-        // ===============================
+        // ============================================================
+        separateur("ÉTAPE 8 : ÉTAT GLOBAL DU SYSTÈME");
+
+        System.out.println("📚 CATALOGUE :");
+        catalogue.afficherTousLesLivres();
+
+        System.out.println("\n👥 MEMBRES :");
+        System.out.println("  → " + membre1 + " | Emprunts en cours : " + membre1.getNombreEmpruntsEnCours());
+        System.out.println("  → " + membre2 + " | Emprunts en cours : " + membre2.getNombreEmpruntsEnCours());
+
+        System.out.println("\n📋 EMPRUNTS EN COURS :");
+        List<Emprunt> enCours = gestionEmprunts.getEmpruntsEnCours();
+        if (enCours.isEmpty()) {
+            System.out.println("  Aucun emprunt en cours.");
+        } else {
+            for (Emprunt e : enCours) {
+                System.out.println("  → " + e);
+            }
+        }
+
+        System.out.println("\n⚠️  EMPRUNTS EN RETARD :");
+        List<Emprunt> enRetard = gestionEmprunts.getEmpruntsEnRetard();
+        if (enRetard.isEmpty()) {
+            System.out.println("  Aucun emprunt en retard.");
+        } else {
+            for (Emprunt e : enRetard) {
+                System.out.println("  → " + e);
+            }
+        }
+
+        System.out.println("\n💰 CAISSE :");
+        System.out.println("  Solde actuel : " + caisse.getSolde() + " €");
+
+        separateur("FIN DE LA SIMULATION — Système opérationnel ✅");
+    }
+
+    private static void separateur(String titre) {
+        System.out.println("\n" + "=".repeat(60));
+        System.out.println("  " + titre);
+        System.out.println("=".repeat(60));
+    }
+}
