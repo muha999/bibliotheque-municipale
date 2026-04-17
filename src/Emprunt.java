@@ -51,7 +51,8 @@ public class Emprunt {
 
     
     public void setDateRetourPrevue(LocalDate date) { this.dateRetourPrevue = date; }
-
+    
+    public void setDateEmprunt(LocalDate date) { this.dateEmprunt = date; }
     @Override
     public String toString() {
         String statut;
