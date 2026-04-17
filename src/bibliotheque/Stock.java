@@ -1,5 +1,3 @@
-package Bibliotheque;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +5,7 @@ public class Stock {
 
     private List<Exemplaire> exemplaires;
 
-     public Stock() {
+    public Stock() {
         this.exemplaires = new ArrayList<>();
     }
 
@@ -19,7 +17,8 @@ public class Stock {
         exemplaires.add(exemplaire);
         System.out.println("Exemplaire ajouté : " + exemplaire.getId());
     }
-     public void retirerExemplaire(int id) {
+
+    public void retirerExemplaire(int id) {
         Exemplaire exemplaireARetirer = null;
         for (Exemplaire e : exemplaires) {
             if (e.getId() == id) {
@@ -34,14 +33,27 @@ public class Stock {
             System.out.println("Erreur : aucun exemplaire trouvé avec l'id " + id);
         }
     }
-    public List<Exemplaire> getExemplairesDisponibles() {
+
+    // ✅ Corrigé : prend un Livre en paramètre
+    public List<Exemplaire> getExemplairesDisponibles(Livre livre) {
         List<Exemplaire> disponibles = new ArrayList<>();
         for (Exemplaire e : exemplaires) {
-            if (e.isDisponible()) {
+            if (e.getLivre().equals(livre) && e.isDisponible()) {
                 disponibles.add(e);
             }
         }
         return disponibles;
+    }
+
+    // ✅ Ajouté : compte le nombre total d'exemplaires pour un livre
+    public int getNombreTotal(Livre livre) {
+        int count = 0;
+        for (Exemplaire e : exemplaires) {
+            if (e.getLivre().equals(livre)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public Exemplaire getExemplaireParId(int id) {
@@ -64,7 +76,6 @@ public class Stock {
             System.out.println(e);
         }
     }
-
 
     public List<Exemplaire> getExemplaires() {
         return exemplaires;
