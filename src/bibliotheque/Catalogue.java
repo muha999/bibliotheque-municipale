@@ -1,18 +1,13 @@
-package Bibliotheque;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Catalogue {
 
-
     private List<Livre> livres;
 
-    
     public Catalogue() {
         this.livres = new ArrayList<>();
     }
-
 
     public void ajouterLivre(Livre livre) {
         if (livre == null) {
@@ -23,21 +18,12 @@ public class Catalogue {
         System.out.println("Livre ajouté : " + livre.getTitre());
     }
 
-    public void supprimerLivre(int id) {
-        Livre livreASupprimer = null;
-
-        for (Livre l : livres) {
-            if (l.getId() == id) {
-                livreASupprimer = l;
-                break;
-            }
-        }
-
-        if (livreASupprimer != null) {
-            livres.remove(livreASupprimer);
+    
+    public void supprimerLivre(Livre livreASupprimer) {
+        if (livres.remove(livreASupprimer)) {
             System.out.println("Livre supprimé : " + livreASupprimer.getTitre());
         } else {
-            System.out.println("Erreur : aucun livre trouvé avec l'id " + id);
+            System.out.println("Erreur : livre non trouvé");
         }
     }
 
@@ -71,16 +57,18 @@ public class Catalogue {
         return null;
     }
 
-    public void afficherTous() {
-        if (livres.isEmpty()) {
-            System.out.println("Le catalogue est vide.");
-            return;
-        }
-        System.out.println("=== CATALOGUE ===");
-        for (Livre l : livres) {
-            System.out.println(l);
-        }
+   public void afficherTousLesLivres() {
+    if (livres.isEmpty()) {
+        System.out.println("Le catalogue est vide.");
+        return;
     }
+    System.out.println("=== CATALOGUE ===");
+    for (Livre l : livres) {
+        System.out.println(l);
+    }
+}
+
+
 
     public List<Livre> getLivres() {
         return livres;
