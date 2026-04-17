@@ -1,5 +1,3 @@
-package main.java.bibliotheque.logistique;
-
 public class Vehicule {
 
     private int id;

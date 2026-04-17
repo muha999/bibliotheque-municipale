@@ -1,5 +1,3 @@
-package main.java.bibliotheque.gestion;
-
 import java.util.ArrayList;
 import java.util.List;
 

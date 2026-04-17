@@ -1,5 +1,3 @@
-package main.java.bibliotheque.logistique;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
