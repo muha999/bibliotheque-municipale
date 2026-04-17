@@ -1,26 +1,20 @@
-package Bibliotheque;
-
 public class Livre {
-    // Attributs(Informations sur le livre )
-    private int id;
+    // Attributs(Informations sur le livre ) 
     private String titre;
     private String auteur;
     private String isbn;
     private String genre;
     private int anneePublication;
     //les constructeurs
-    public Livre(int id ,String titre,String auteur ,String idbn ,String genre,int anneePublication){
-        this.id=id;
-        this.titre=titre;
-        this.auteur=auteur;
-        this.isbn=idbn;
-        this.genre=genre;
-        this.anneePublication=anneePublication;
-    }
-    //les getters 
-    public int getId() {
-        return id;
-    }
+   
+    public Livre(String isbn, String titre, String auteur, String genre, int anneePublication) {
+    this.isbn = isbn;
+    this.titre = titre;
+    this.auteur = auteur;
+    this.genre = genre;
+    this.anneePublication = anneePublication;
+}   
+    
     public String getTitre() {
         return titre;
     }
@@ -80,7 +74,7 @@ public class Livre {
     //methode pour afficher les informations du livre
     public String toString(){
         return "Livre{" +
-                "id=" + id +
+            
                 ", titre='" + titre + '\'' +
                 ", auteur='" + auteur + '\'' +
                 ", isbn='" + isbn + '\'' +
@@ -89,8 +83,3 @@ public class Livre {
                 '}';
     }
 }
-
-
-    
-    
-
